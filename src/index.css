@@ -166,12 +166,12 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-100%);
     }
   }
 
   .animate-scroll-left {
-    animation: animate-scroll-left 20s linear infinite;
+    animation: animate-scroll-left 15s linear infinite;
   }
 
   .animate-delay-100 {
