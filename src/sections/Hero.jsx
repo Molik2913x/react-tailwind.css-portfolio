@@ -2,7 +2,7 @@ import { Button } from "@/Components/Button";
 import {
   ArrowRight,ChevronDown,Github,Linkedin,Instagram,Download,
 } from "lucide-react";
-import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+import { AnimatedBorderButton } from "@/Components/AnimatedBorderButton";
 
 const skills = [
    "Java",
