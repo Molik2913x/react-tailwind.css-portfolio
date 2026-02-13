@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #0f1418ff;
+  --color-foreground: rgb(219, 224, 231);
+  --color-text: #e1e6ebff;
+  --color-half-primary: rgba(32, 178, 166, 0.308);
+  --color-card: #141a1f;
+  --color-card-hover: #1e262aff;
+  --color-primary: #20b2a6ff;
+  --color-low-primary:rgba(32, 163, 152, 0.154);
+  --color-primary-foreground: #ffffffff;
+
+  --color-secondary: #1f2830ff;
+  --color-secondary-foreground: rgb(4, 158, 158);
+
+  --color-muted: #252e37;
+  --color-muted-foreground: #7a8491;
+
+  --color-border: #242b32;
+  --radius: 0.75rem;
+
+  
+  --color-surface: #1a2329;
+}
+
+
+@layer base {
+   
+  button {
+    cursor:pointer
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .glass {
+    background: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+  }
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px);
+    border:1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+  .glow-border {
+    border: 0.5px solid var(--color-halfprimary);
+    box-shadow: 0 0 12px rgba(32, 178, 166, 0.354);
+    transition: all 0.3s ease;
+  }
+
+  .glow-border:hover {
+    box-shadow: 0 0 25px rgba(32, 178, 166, 0.9);
+  }
+
+  .glow-text {
+    
+    text-shadow:0 0 20px var(--color-primary);
+      
+  }
+
+   .animate-border-path {
+    stroke-dasharray: 420 600;
+    stroke-dashoffset: 420;
+  }
+
+  /* run animation ONLY on hover */
+  .group:hover .animate-border-path {
+    animation: border-run 2s linear infinite;
+  }
+
+  @keyframes border-run {
+    from {
+      stroke-dashoffset: 420;
+    }
+    to {
+      stroke-dashoffset: -500;
+    }
+  }
+}
+
+  .glow-hover {
+    transition: text-shadow 1s ease;
+  }
+  .glow-hover:hover {
+    text-shadow:
+      0 0 8px var(--color-primary),
+      0 0 16px var(--color-primary),
+      0 0 32px var(--color-primary);
+  }
+
+
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform:translateY(20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform:translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slow-drift{
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(20px, -30px);
+    }
+    50% {
+      transform: translate(-15px, 20px);
+    }
+    75% {
+      transform: translate(30px, 10px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-in-out both;
+  }
+  .animate-slow-drift {
+    animation: slow-drift 10s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes animate-scroll-left{
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: animate-scroll-left 20s linear infinite;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }  
+ 
+  .animate-border-path {
+    stroke-dasharray: 400 500;
+    stroke-dashoffset: 400;
+    transition:stroke 0.3s ease;
+  }
+  .group-hover .animate-border-path {
+    animation: animated-border 2s linear infinite;
+  }
+
+  .animate-border:hover {
+    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent)
+  }
+  .timeline-glow {
+    box-shadow:
+      0 0 20px color-mix(in srgb, var(--color-primary) 40%, transparent),
+      0 0 60px color-mix(in srgb, var(--color-primary) 30%, transparent),
+      0 0 120px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+  
+}
