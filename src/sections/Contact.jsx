@@ -107,7 +107,7 @@ export const Contact = () => {
         </span>
       </h2>
 
-      <p className="text-muted italic">
+      <p className="text-muted italic hover:underline transition-colors duration-500 hover:text-primaryForeground">
         Looking for your next great team member? I’m open to work — send me a message and let’s set up a conversation.
       </p>
     </div>
@@ -187,7 +187,7 @@ export const Contact = () => {
       {/* INFO */}
       <div className="space-y-6">
 
-        <div className="glass rounded-3xl p-6 sm:p-8 overflow-hidden">
+        <div className="glass hover:shadow-[0_0_30px_var(--color-half-primary)] rounded-3xl p-6 sm:p-8 overflow-hidden">
           <h3 className="text-xl font-semibold mb-6">
             Contact Information
           </h3>
@@ -196,7 +196,7 @@ export const Contact = () => {
             {contactInfo.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-4 rounded-xl"
+                className="flex hover:glass hover:-translate-y-1 transition-all duration-300 hover:scale-105 items-start gap-4 p-4 rounded-xl"
               >
                 <div className="w-12 h-12 shrink-0 rounded-xl bg-lowprimary flex items-center justify-center">
                   <item.icon className="w-5 h-5 text-primary" />
@@ -215,7 +215,7 @@ export const Contact = () => {
           </div>
         </div>
 
-        <div className="glass rounded-3xl p-6 sm:p-8 border border-halfprimary">
+        <div className="glass rounded-3xl hover:scale-105 transition-all duration-300 hover:shadow-[0_0_50px_var(--color-low-primary)]  hover:-translate-y-2 p-6 sm:p-8 border border-halfprimary">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
             <span className="font-medium">Currently Available</span>
