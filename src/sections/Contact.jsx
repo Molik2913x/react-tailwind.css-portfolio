@@ -162,7 +162,7 @@ export const Contact = () => {
           </div>
 
           <Button
-            className="w-full"
+            className="w-full transition-all duration-300 hover:shadow-[0_0_20px_var(--color-primary)] md:!px-6  md:!py-3 lg:!px-7 lg:!py-3.5"
             type="submit"
             size="lg"
             disabled={isLoading}
